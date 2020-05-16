@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 import { RegisterDataComponent } from './register-data/register-data.component';
 
@@ -8,7 +9,8 @@ import { RegisterDataComponent } from './register-data/register-data.component';
 	declarations: [RegisterDataComponent],
 	imports: [
 		CommonModule,
-		FormsModule
+		FormsModule,
+		SharedModule
 	],
 	exports: [RegisterDataComponent]
 })

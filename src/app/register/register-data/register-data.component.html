@@ -1,1 +1,137 @@
-<p>register-data works!</p>
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="row mb-3">
+        <div class="col-lg-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-3">
+                            <img src="./assets/images/profile-3.webp" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <h5 class="card-title text-center">Datos Generales</h5>
+                            <div class="row">
+                                <div class="col-6"><strong>Cedula</strong></div>
+                                <div class="col-6">{{formUsuarios.cedula}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6"><strong>Nombres</strong></div>
+                                <div class="col-6">{{formUsuarios.nombres}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6"><strong>Apellidos</strong></div>
+                                <div class="col-6">{{formUsuarios.apellidos}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6"><strong>Direccion</strong></div>
+                                <div class="col-6">{{formUsuarios.direccion}}</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6"><strong>Tel/Cel</strong></div>
+                                <div class="col-6">{{formUsuarios.telefono}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Ingresa tus datos generales</h5>
+                    <form #frmdata="ngForm" role="form" class="c-card__body" autocomplete="off" (ngSubmit)="saveDataUser(frmdata.value)" novalidate>
+                        <div class="form-group">
+                            <label for="cedula">Cedula</label>
+                            <input 
+                                name="cedula" 
+                                [(ngModel)]="formUsuarios.cedula" 
+                                #cedula="ngModel" 
+                                type="number" 
+                                class="form-control" 
+                                id="cedula" 
+                                placeholder="Cedula" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellidos">Nombres</label>
+                            <input 
+                                name="nombres" 
+                                [(ngModel)]="formUsuarios.nombres" 
+                                #nombres="ngModel" 
+                                type="text" 
+                                class="form-control" 
+                                id="nombres" 
+                                placeholder="Nombres" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellidos">Apellidos</label>
+                            <input 
+                                name="apellidos" 
+                                [(ngModel)]="formUsuarios.apellidos" 
+                                #apellidos="ngModel" 
+                                type="text" 
+                                class="form-control" 
+                                id="apellidos"
+                                placeholder="Apellidos" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="direccion">Direccion</label>
+                            <input 
+                                name="direccion" 
+                                [(ngModel)]="formUsuarios.direccion"
+                                #direccion="ngModel"
+                                type="text" 
+                                class="form-control" 
+                                id="direccion" placeholder="Direccion" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cel">Tel/Cel</label>
+                            <input 
+                                name="direccion" 
+                                [(ngModel)]="formUsuarios.telefono" 
+                                #telefono="ngModel" 
+                                type="number" 
+                                name="telefono" 
+                                class="form-control" 
+                                id="cel" placeholder="Tel/Cel" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="foto">Foto fondo blanco</label>
+                            <input 
+                                name="foto"
+                                [(ngModel)]="formUsuarios.photo"
+                                #photo="ngModel" 
+                                type="file" 
+                                class="form-control-file" 
+                                id="foto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cedula-front">Foto frontal cedula</label>
+                            <input 
+                                name="cardfront"
+                                [(ngModel)]="formUsuarios.cedfront"
+                                #cedfront="ngModel" 
+                                type="file" 
+                                class="form-control-file" 
+                                id="cedula-front" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cedula-back">Foto trasera cedula</label>
+                            <input
+                                name="cardback"
+                                [(ngModel)]="formUsuarios.cedback"
+                                #cedback="ngModel"
+                                type="file" 
+                                class="form-control-file" 
+                                id="cedula-back" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" [disabled]="frmdata.invalid">Registrar Datos</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
